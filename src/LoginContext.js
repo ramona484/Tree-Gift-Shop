@@ -9,7 +9,7 @@ export const LoginProvider = (props) => {
   const [password, setPassword] = useState();
   const [loginStatus, setLoginStatus] = useState("");
 
-  //===========Login=============//
+  //==========Login============//
   
   const login = (e) => {
     e.preventDefault();
