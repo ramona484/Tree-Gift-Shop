@@ -1,6 +1,5 @@
 
 name: push to Docker Hub
-
 on:
   push:
     branches: master
