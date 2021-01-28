@@ -1,5 +1,5 @@
-
 name: push to Docker Hub
+
 on:
   push:
     branches: main
@@ -10,22 +10,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v2
-        
-      - name: trufflehog-actions-scan
-        uses: edplato/trufflehog-actions-scan@master 
-        
-      - uses: brpaz/hadolint-action@v1.2.1
-        with:
-          dockerfile: Dockerfile
-          
-      - name: Scan image
-        uses: anchore/scan-action@v2
-        with:
-          image: "ramona84/tree-shop:latest"
-          fail-build: true
-          severity-cutoff: critical
-          
+        uses: actions/checkout@v2     
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
