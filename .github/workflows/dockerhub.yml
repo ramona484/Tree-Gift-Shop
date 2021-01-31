@@ -18,14 +18,7 @@ jobs:
       - uses: brpaz/hadolint-action@v1.2.1
         with:
           dockerfile: Dockerfile
-          
-      - name: Scan image
-        uses: anchore/scan-action@v2
-        with:
-          image: "ramona84/tree-shop:latest"
-          fail-build: true
-          severity-cutoff: critical
-          
+               
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -44,6 +37,6 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64,linux/386
+          platforms: linux/amd64
           push: true
           tags: ramona84/tree-shop:latest
