@@ -13,4 +13,4 @@ production:
     - gem install dpl
     - dpl --provider=heroku --app=node-heroku-84 --api-key=$HEROKU_API_KEY
   only:
-    - master
+    - main
