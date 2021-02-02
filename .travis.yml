@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "12"
+sudo: required
+dist: trusty
+services:
+  - docker
+before_script:
+  - npm install
+script:
+  - docker build -t app
+after_success:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - docker tag app $DOCKER_USER/app:$TRAVIS_BUILD_NUMBER
+  - docker push $DOCKER_USER/app:$TRAVIS_BUILD_NUMBER
+  - docker tag app $DOCKER_USER/app:latest
+  - docker push $DOCKER_USER/app:latest
