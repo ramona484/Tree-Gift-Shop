@@ -3,15 +3,22 @@ node_js:
   - "12"
 sudo: required
 dist: trusty
+
+addons:
+  sonarcloud:
+    organization: "ramona484"
+    token: $SONAR_TOKEN
+
 services:
   - docker
 before_script:
   - npm install
 script:
-  - docker build -t app .
+  - docker build -t tree-shop .
+  - sonar-scanner
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker tag app $DOCKER_USER/app:$TRAVIS_BUILD_NUMBER
-  - docker push $DOCKER_USER/app:$TRAVIS_BUILD_NUMBER
-  - docker tag app $DOCKER_USER/app:latest
-  - docker push $DOCKER_USER/app:latest
+  - docker tag tree-shop $DOCKER_USER/tree-shop:$TRAVIS_BUILD_NUMBER
+  - docker push $DOCKER_USER/tree-shop:$TRAVIS_BUILD_NUMBER
+  - docker tag tree-shop $DOCKER_USER/tree-shop:latest
+  - docker push $DOCKER_USER/tree-shop:latest
