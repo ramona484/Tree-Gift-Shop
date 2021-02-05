@@ -15,7 +15,7 @@ jobs:
       - name: Trufflehog secrets scan
         uses: edplato/trufflehog-actions-scan@master 
         
-      - name: dockerfile linting  
+      - name: Dockerfile linting  
         uses: brpaz/hadolint-action@v1.2.1
         with:
           dockerfile: Dockerfile
