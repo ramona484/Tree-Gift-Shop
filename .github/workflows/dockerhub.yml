@@ -24,6 +24,11 @@ jobs:
         uses: brpaz/hadolint-action@v1.2.1
         with:
           dockerfile: Dockerfile
+          
+      - name: Dockle linting 
+        uses: hands-lab/dockle-action@v1
+        with:
+          image: tree-shop 
                
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
