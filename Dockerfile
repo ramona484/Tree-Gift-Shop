@@ -1,7 +1,7 @@
 FROM node:14.15.4-alpine3.11
 
 LABEL maintainer="ramona"
-RUN adduser ramona
+RUN adduser ramona -D
 
 WORKDIR /src
 COPY package*.json ./
