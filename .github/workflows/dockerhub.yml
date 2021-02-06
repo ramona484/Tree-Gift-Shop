@@ -5,11 +5,8 @@ on:
     branches: main
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+  path-context:
+    runs-on: ubuntu-latest
     steps:
       
       - name: Checkout
