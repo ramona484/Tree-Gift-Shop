@@ -1,11 +1,11 @@
-FROM node:latest
+FROM node:14.15.4-alpine3.12
 
 LABEL maintainer="ramona"
 RUN adduser ramona
 
-WORKDIR src
-ADD package*.json ./
-ADD . .
+WORKDIR /src
+COPY package*.json ./
+COPY . .
 RUN npm install
 
 EXPOSE 8080
