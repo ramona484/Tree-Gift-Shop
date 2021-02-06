@@ -5,19 +5,15 @@ on:
     branches: main
 
 jobs:
-  path-context:
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
-          
-      - uses: microsoft/DevSkim-Action@v1
-      - uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: devskim-results.sarif 
           
       - name: gitleaks-action
         uses: zricethezav/gitleaks-action@master
@@ -29,12 +25,7 @@ jobs:
         uses: brpaz/hadolint-action@v1.2.1
         with:
           dockerfile: Dockerfile
-          
-      - name: Dockle linting 
-        uses: hands-lab/dockle-action@v1
-        with:
-          image: tree-shop 
-               
+                        
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
