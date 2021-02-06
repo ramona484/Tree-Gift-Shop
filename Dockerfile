@@ -1,4 +1,4 @@
-FROM node:14.15.4-alpine3.12
+FROM node:14.15.4-alpine3.11
 
 LABEL maintainer="ramona"
 RUN adduser ramona
