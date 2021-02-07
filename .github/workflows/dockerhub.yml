@@ -11,6 +11,12 @@ jobs:
       
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: nodejsscan scan
+        id: njsscan
+        uses: ajinabraham/njsscan-action@master
+        with:
+          args: '.'
           
       - name: gitleaks-action
         uses: zricethezav/gitleaks-action@master
