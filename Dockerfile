@@ -1,18 +1,8 @@
-FROM node:15.8.0-alpine3.10
-
-LABEL maintainer="ramona"
-RUN adduser ramona -D
-
-ENV AWS_KEY=AKUIS6VEP9M7KLD5UIO69
-
+FROM node:12.20.1-alpine3.10
 WORKDIR /src
 COPY package*.json ./
 COPY . .
-RUN npm install
+RUN npm ci --only=production
 
 EXPOSE 8080
-
-USER ramona
-
 CMD [ "npm", "start" ]
-
