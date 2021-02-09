@@ -30,6 +30,7 @@
     "bootstrap": "^4.5.3",
     "confetti": "^1.1.1",
     "cors": "^2.8.5",
+    "extend": "^3.0.2",
     "framer-motion": "^3.2.1",
     "local-storage": "^2.0.0",
     "mysql": "^2.18.1",
