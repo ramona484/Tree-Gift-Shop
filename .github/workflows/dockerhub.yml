@@ -1,4 +1,3 @@
-
 name: push to Docker Hub
 on:
   push:
@@ -15,8 +14,6 @@ jobs:
       - name: gitleaks-action
         uses: zricethezav/gitleaks-action@master
         
-      - name: Trufflehog secrets scan
-        uses: edplato/trufflehog-actions-scan@master 
         
       - name: Dockerfile linting  
         uses: brpaz/hadolint-action@v1.2.1
