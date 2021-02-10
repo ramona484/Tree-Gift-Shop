@@ -1,7 +1,7 @@
 
 version: 2.1
 orbs:
-  gg-shield: gitguardian/ggshield@1.1.0
+  ggshield: gitguardian/ggshield@volatile
   trivy: signavio/trivy@1.1.0
 
 executors:
@@ -87,7 +87,7 @@ workflows:
   build-master:
     jobs:
       - ggshield/scan:
-          name: ggshield-scan # best practice is to name each orb job
+          name: ggshield-scan
           base_revision: << pipeline.git.base_revision >>
           revision: <<pipeline.git.revision>>
       - dockle:
