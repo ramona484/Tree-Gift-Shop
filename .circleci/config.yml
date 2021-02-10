@@ -86,7 +86,6 @@ workflows:
   version: 2
   build-master:
     jobs:
-      - container-scan
       - ggshield/scan:
           name: ggshield-scan # best practice is to name each orb job
           base_revision: << pipeline.git.base_revision >>
