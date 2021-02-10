@@ -46,9 +46,9 @@ workflows:
       - lint:
           jobs:
             - docker/hadolint:
-                dockerfiles: path/to/Dockerfile
+                dockerfiles: /src
                 ignore-rules: 'DL4005,DL3008'
-                trusted-registries: 'docker.io,my-company.com:5000'
+                trusted-registries: 'docker.io'
       - build:
           filters:
             branches:
