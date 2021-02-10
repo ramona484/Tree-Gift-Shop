@@ -1,3 +1,7 @@
+
+orbs:
+  docker: circleci/docker@x.y.z
+
 version: 2.1
 executors:
   docker-publisher:
@@ -40,6 +44,12 @@ workflows:
   version: 2
   build-master:
     jobs:
+      - lint:
+          jobs:
+            - docker/hadolint:
+                dockerfiles: path/to/Dockerfile
+                ignore-rules: 'DL4005,DL3008'
+                trusted-registries: 'docker.io,my-company.com:5000'
       - build:
           filters:
             branches:
@@ -50,3 +60,5 @@ workflows:
           filters:
             branches:
               only: main
+
+
